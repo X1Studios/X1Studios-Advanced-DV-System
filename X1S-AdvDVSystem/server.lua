@@ -9,7 +9,7 @@ AddEventHandler('onResourceStart', function(resourceName)
  /_/ \_\  |_| |____/ 
 
  X1Studios DV System
-       v1.0.0
+       v1.0.1
     ]])
 end)
 
