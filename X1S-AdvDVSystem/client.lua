@@ -6,22 +6,33 @@ RegisterNetEvent("x1_dv:deleteVehicleClient")
 AddEventHandler("x1_dv:deleteVehicleClient", function()
 
     local ped = PlayerPedId()
-    local veh = GetVehiclePedIsIn(ped,false)
+    local vehicle = GetVehiclePedIsIn(ped, false)
 
-    if veh ~= 0 then
-        DeleteEntity(veh)
-        SendNUIMessage({type="notify",text="Vehicle Deleted"})
+    if vehicle ~= 0 then
+        DeleteEntity(vehicle)
+
+        SendNUIMessage({
+            type = "notify",
+            text = "Vehicle Deleted"
+        })
         return
     end
 
     local coords = GetEntityCoords(ped)
-    veh = GetClosestVehicle(coords.x,coords.y,coords.z,5.0,0,70)
+    local closestVehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 6.0, 0, 70)
 
-    if veh ~= 0 then
-        DeleteEntity(veh)
-        SendNUIMessage({type="notify",text="Vehicle Deleted"})
+    if closestVehicle ~= 0 then
+        DeleteEntity(closestVehicle)
+
+        SendNUIMessage({
+            type = "notify",
+            text = "Closest Vehicle Deleted"
+        })
     else
-        SendNUIMessage({type="notify",text="No Vehicle Nearby"})
+        SendNUIMessage({
+            type = "notify",
+            text = "No Vehicle Nearby"
+        })
     end
 
 end)
