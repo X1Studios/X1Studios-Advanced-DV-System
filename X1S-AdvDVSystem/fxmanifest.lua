@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'X1Studios'
 description 'Advanced DV + DVALL System'
-version '1.0.0'
+version '1.0.1'
 
 shared_script 'config.lua'
 
